@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Câu hỏi</title>
+    <style>
+	#question {
+		width:100%;
+		text-align:center;
+		font-size: 30px;
+	}
+	#yes, #no {
+		position: fixed;
+		width: 200px;
+		height: 75px;
+		font-size: 25px
+	}
+	#yes {
+		background-color: green;
+		color: white;
+		font-weight: 600;
+		text-align:center;
+	}
+	#no {
+		background-color: red;
+		color: white;
+		font-weight: 600;
+		text-align:center;
+	}
+    </style>
+</head>
+<body>
+    <div id="question">câu hỏi?</div>
+    <button id="yes">CÓ</button>
+    <button id="no">KHÔNG</button>
+</body>
+<script>
+	function getRndInteger(min, max) {
+  		return Math.floor(Math.random() * (max - min) ) + min;
+	}
+	var h = window.screen.height;
+	var w = window.screen.width;
+	var btn_yes = document.getElementById('yes')
+	var btn_no = document.getElementById('no')
+	btn_yes.style.top = h/3 + "px";
+	btn_no.style.top = h/3 + "px";
+	btn_yes.style.left = (w/2 - 75) + "px";
+	btn_no.style.left = (w/2 + 275) + "px";
+	btn_yes.addEventListener("mouseover", (e) => {
+		randw = 0
+		randh = 0
+		while(Math.abs(randw) < 300 || Math.abs(randh) < 100) {
+			randw = getRndInteger(-parseInt(btn_yes.style.left), w - parseInt(btn_yes.style.left) - 200);
+			randh = getRndInteger(-parseInt(btn_yes.style.top), h - parseInt(btn_yes.style.top) - 75);
+		}
+		btn_yes.style.top = (parseInt(btn_yes.style.top) + randh) + "px";
+		btn_yes.style.left = (parseInt(btn_yes.style.left) + randw) + "px";
+	});
+	btn_no.addEventListener("click", (e) => {
+		alert("Biết điều đấy ^v^ !")
+	})
+</script>
+</html>
