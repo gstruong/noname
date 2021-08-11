@@ -31,7 +31,7 @@
 	}
     </style>
 </head>
-<body>
+<body style="width: 100vw; height: 98vh; overflow: hidden">
     <div id="question">Bạn có ghét tao không ?</div>
     <button id="yes">CÓ</button>
     <button id="no">KHÔNG</button>
@@ -40,8 +40,8 @@
 	function getRndInteger(min, max) {
   		return Math.floor(Math.random() * (max - min) ) + min;
 	}
-	var h = window.screen.height;
-	var w = window.screen.width;
+	var h = document.body.scrollHeight
+	var w = document.body.scrollWidth
 	var btn_yes = document.getElementById('yes')
 	var btn_no = document.getElementById('no')
 	btn_yes.style.top = h/3 + "px";
