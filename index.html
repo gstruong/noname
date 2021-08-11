@@ -58,6 +58,16 @@
 		btn_yes.style.top = (parseInt(btn_yes.style.top) + randh) + "px";
 		btn_yes.style.left = (parseInt(btn_yes.style.left) + randw) + "px";
 	});
+	btn_yes.addEventListener("click", (e) => {
+		randw = 0
+		randh = 0
+		while(Math.abs(randw) < 200 || Math.abs(randh) < 100) {
+			randw = getRndInteger(-parseInt(btn_yes.style.left), w - parseInt(btn_yes.style.left) - 200);
+			randh = getRndInteger(-parseInt(btn_yes.style.top), h - parseInt(btn_yes.style.top) - 75);
+		}
+		btn_yes.style.top = (parseInt(btn_yes.style.top) + randh) + "px";
+		btn_yes.style.left = (parseInt(btn_yes.style.left) + randw) + "px";
+	});
 	btn_no.addEventListener("click", (e) => {
 		alert("Biết điều đấy ^v^ !")
 	})
